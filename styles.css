@@ -29,6 +29,7 @@ body{
     inset 5px 5px 20px rgba(0,0,0,0.2),
     inset -5px -5px 15px rgba(0,0,0,0.75);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -106,4 +107,50 @@ body{
     width: 180px;
     height: 180px;
     z-index: 8;
+}
+.circle::before{
+    content: '';
+    position: absolute;
+    top: -8.5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--clr);
+    box-shadow: 0 0 20px var(--clr),
+    0 0 60px var(--clr);
+}
+#time{
+    z-index: 7123;
+    margin-bottom:40px;
+    display: flex;
+    padding: 10px 20px;
+    font-size: 2em;
+    font-weight: 600;
+    border-radius: 40px;
+    border: 2px solid rgba(0,0,0,0.5);
+    /* box-shadow: 5px 5px 10px rgba(0,0,0,0.5),
+    inset 5px 5px 20px rgba(255,255,255, 0.2),
+    inset -5px -5px 15px rgba(0,0,0, 0.75); */
+}
+#time div{
+    position: relative;
+    width: 60px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--clr);
+}
+#time div:nth-child(1)::after,
+#time div:nth-child(2)::after
+{
+    content: '';
+    position: absolute;
+    text-align: center;
+    right: -4px;
+}
+#time div:last-child{
+    font-size: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     
 }
