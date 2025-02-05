@@ -153,7 +153,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-/* #time div:nth-child(2)::after{
+#time div:nth-child(2)::after{
     animation: animate 1s steps(1) infinite;
 }
 @keyframes animate{
@@ -163,4 +163,4 @@ body{
     50%{
         opacity:0;
     }  
-} */
+}
