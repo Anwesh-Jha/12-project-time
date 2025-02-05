@@ -142,7 +142,7 @@ body{
 #time div:nth-child(1)::after,
 #time div:nth-child(2)::after
 {
-    content: '';
+    content: ':';
     position: absolute;
     text-align: center;
     right: -4px;
@@ -152,5 +152,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-     
 }
+/* #time div:nth-child(2)::after{
+    animation: animate 1s steps(1) infinite;
+}
+@keyframes animate{
+    0%{
+        opacity:1;
+    }
+    50%{
+        opacity:0;
+    }  
+} */
