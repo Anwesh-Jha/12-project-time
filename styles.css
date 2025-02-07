@@ -164,3 +164,7 @@ body{
         opacity:0;
     }  
 }
+.stopwatch-container{
+    height: 100vh;
+}
+
