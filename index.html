@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time</title>
+    <script src="https://kit.fontawesome.com/3b9824ba25.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -35,8 +36,20 @@
         </div>
     </div>
 </div>
+
 <div class="stopwatch-container" id="stopwatch">
-    <div class=""></div>stopwatch
+    <div class="stopwatch">
+        <div class="text" id="displayTime">
+            <h1 style="color: #fae4ff;">00 : 00 : 00</h1>
+        </div>
+    <div class="buttons">
+        <div class="play-pause">
+            <i id="playBtn" class="fa-solid fa-play" style="--clr: #e64398;"></i>
+            <i id="pauseBtn" class="fa-solid fa-pause" style="--clr: #5680e9;"></i>
+        </div>
+            <i class="fa-solid fa-stop" style="--clr: #a64ac9;"></i>
+        </div>
+</div>
 </div>
 <script>
     function updateClock() {
@@ -77,6 +90,67 @@
 
     setInterval(updateClock, 1000);
     updateClock(); // Initial call
+</script>
+<script>
+    let [s_seconds, s_minutes, s_hours] = [0, 0, 0];
+let displayTime = document.getElementById("displayTime").querySelector("h1");
+let timer = null;
+
+let playBtn = document.getElementById("playBtn");
+let pauseBtn = document.getElementById("pauseBtn");
+
+function stopwatch() {
+    s_seconds++;
+    if (s_seconds == 60) {
+        s_seconds = 0;
+        s_minutes++;
+    }
+    if (s_minutes == 60) {
+        s_minutes = 0;
+        s_hours++;
+    }
+
+    let s_h = s_hours < 10 ? "0" + s_hours : s_hours;
+    let s_m = s_minutes < 10 ? "0" + s_minutes : s_minutes;
+    let s_s = s_seconds < 10 ? "0" + s_seconds : s_seconds;
+
+    displayTime.innerHTML = `${s_h} : ${s_m} : ${s_s}`;
+}
+
+function watchStart() {
+    if (timer !== null) {
+        clearInterval(timer);
+    }
+    timer = setInterval(stopwatch, 1000);
+    
+    // Toggle visibility
+    playBtn.style.display = "none";
+    pauseBtn.style.display = "block";
+}
+
+function watchPause() {
+    clearInterval(timer);
+    
+    // Toggle visibility
+    playBtn.style.display = "block";
+    pauseBtn.style.display = "none";
+}
+
+function watchReset() {
+    clearInterval(timer);
+    [s_seconds, s_minutes, s_hours] = [0, 0, 0];
+    displayTime.innerHTML = "00 : 00 : 00";
+    
+    // Reset to initial state
+    playBtn.style.display = "block";
+    pauseBtn.style.display = "none";
+}
+
+// Attach event listeners to buttons
+playBtn.addEventListener("click", watchStart);
+pauseBtn.addEventListener("click", watchPause);
+document.querySelector(".fa-stop").addEventListener("click", watchReset);
+
 </script>
 </body>
 </html>
