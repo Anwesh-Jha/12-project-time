@@ -187,8 +187,11 @@ body{
     border: 2px solid ;border: 2px solid rgba(0,0,0,0.5);
     width: 350px;
     font-size: 1.7em;
-    height: 25px;
-    text-align: center;  
+    height: 70px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
     position: relative;
     margin-bottom: 30px;
 }
