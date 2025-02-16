@@ -8,7 +8,28 @@
 }
 body{
     min-height: 100vh;
-    background-color: #190f27 ;
+    background-color: #190f27;
+    cursor: none;
+}
+.cursor-dot{
+    width: 7px;
+    height: 7px;
+    background-color: #e64398;
+}
+.cursor-outline{
+    width: 30px;
+    height: 30px;
+    border: 2px solid #a64ac9;
+    transition: 0.2s ease-in-out;
+}
+.cursor-outline, .cursor-dot{
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
 }
 .myclock{
     display: flex;
