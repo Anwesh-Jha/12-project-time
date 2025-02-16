@@ -234,7 +234,6 @@ body{
 
 .buttons i {
     width: 50px;
-    cursor: pointer;
     color: var(--clr);
     text-shadow: 0 0 10px var(--clr), 0 0 60px var(--clr);
     transition: opacity 0.3s ease-in-out;
